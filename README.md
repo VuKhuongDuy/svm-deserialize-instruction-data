@@ -40,7 +40,7 @@ npm install
 Program Public Key: Replace ProgramPublicKeyHere with your program's public key.
 Transaction Hash: Replace YourTransactionSignatureHere with the Solana transaction signature you want to decode.
 
-2. Run the script
+2. Run the script get args
 
 ```bash
 npx ts-node readArgs.ts
@@ -51,6 +51,21 @@ The output will like this:
   args: {
     data: { args1: <BN: 55128bf6d881>, args2: <BN: 3>, args3: [Object] },
     name: 'YourInstructionName'
+  }
+}
+```
+
+3. Run the script get event
+
+```bash
+npx ts-node readEvent.ts
+```
+The output will like this:
+```bash
+{
+  event: {
+    field_1: "field1",
+    field_2: 'field2'
   }
 }
 ```
