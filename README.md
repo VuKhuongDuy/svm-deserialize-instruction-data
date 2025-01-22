@@ -22,7 +22,7 @@ Before using the script, ensure you have the following installed:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/solana-transaction-decoder.git
-   cd solana-transaction-decoder
+   cd svm-deserialize-instruction-data
 
 2. Install dependencies:
 ```bash
@@ -43,8 +43,14 @@ Transaction Hash: Replace YourTransactionSignatureHere with the Solana transacti
 2. Run the script
 
 ```bash
-ts-node decodeTransaction.ts
+npx ts-node readArgs.ts
 ```
-
-## Example Output
-For a transaction with the hash 5fv2c..., the decoded result might look like this:
+The output will like this:
+```bash
+{
+  args: {
+    data: { args1: <BN: 55128bf6d881>, args2: <BN: 3>, args3: [Object] },
+    name: 'YourInstructionName'
+  }
+}
+```
