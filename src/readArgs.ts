@@ -5,11 +5,9 @@ import {
 } from "@coral-xyz/anchor";
 import { MyProgram, IDL } from "../idl/program";
 
-// Replace these with your program-specific details
-const programId = new PublicKey("Your_program_id_here"); // Your program's public key
 const connection = new Connection(clusterApiUrl("mainnet-beta"), "confirmed");
 
-async function readTransaction(txSignature: string) {
+async function readTransaction(txSignature: string, programId: string) {
   // Fetch the transaction
   const transaction = await connection.getTransaction(txSignature);
 
@@ -18,7 +16,7 @@ async function readTransaction(txSignature: string) {
     return;
   }
 
-  const program = new Program(IDL as MyProgram, programId, {
+  const program = new Program(IDL as MyProgram, new PublicKey(programId), {
     connection: connection,
   });
 
@@ -41,5 +39,6 @@ async function readTransaction(txSignature: string) {
 
 // Example usage
 readTransaction(
-  "your_transaction_hash"
+  "your_transaction_hash",
+  "Your_program_id_here"
 ).catch(console.error);
